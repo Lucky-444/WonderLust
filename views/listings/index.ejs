@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WonderLust</title>
+  </head>
+  <body>
+    <h1>Welcome to WonderLust!</h1>
+    <p>Discover the world's most amazing destinations.</p>
+    <form mathod = "GET" action="/listings/new">
+        <button>
+            Create
+        </button>
+    </form>
+
+    <ul>
+      <% for (let listing of allListings){ %>
+      <li>
+        <a href="/listings/<%= listing._id %>">
+            <%= listing.title %>
+        </a>
+      </li>
+      <% } %>
+    </ul>
+  </body>
+</html>
