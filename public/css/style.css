@@ -1,0 +1,56 @@
+/* body{
+    background-color: pink;
+} */
+
+.navbar{
+    height: 5rem;
+    background-color: #f8f9fa;
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+    color: #060606 !important;
+}
+.f-info-links {
+    text-decoration: none;
+    background-color: #f8f9fa;
+    color: #060606 !important;
+    margin-top: 1rem;
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #ccc;
+}
+
+.f-info-links a:hover {
+    width: 100%;
+    text-decoration: underline;
+    color: #fe424d !important;
+}
+
+.f-info {
+    background-color: #f8f9fa;
+}
+
+.f-info-socials {
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center; 
+    gap: 1rem;                       /* gap between items */
+      /* centers vertically */
+    width: 100%;
+    height: 100%;            /* optional: make sure it takes full height of parent */
+    text-align: center;
+}
+
+
+.f-info-text {
+    /* Add positioning or other styles if needed */
+    text-align: center;
+}
+
+.footer {
+    background-color: #f8f9fa;
+    height: 4rem;
+}
