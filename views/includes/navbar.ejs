@@ -1,19 +1,29 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom shadow-sm sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top border-bottom">
+  <div class="container">
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="/">
+      <i class="fa-solid fa-compass "></i> WonderLust
+    </a>
+
+    <!-- Toggler for mobile -->
     <button
       class="navbar-toggler"
       type="button"
       data-bs-toggle="collapse"
       data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/listings">All Listings</a>
-        <a class="nav-link" href="/listings/new">Add New Listings</a>       
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+      <div class="navbar-nav gap-3">
+        <a class="nav-link  text-dark fw-semibold" href="/">Home</a>
+        <a class="nav-link text-dark fw-semibold" href="/listings">All Listings</a>
+        <a class="nav-link text-dark fw-semibold" href="/listings/new">Add New Listing</a>
       </div>
     </div>
   </div>

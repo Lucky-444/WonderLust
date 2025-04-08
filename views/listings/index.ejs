@@ -1,18 +1,32 @@
-<% layout("layouts/boilerplate") %>
+<% layout("layouts/boilerplate") %> 
 
-<body>
-  <h1>Welcome to WonderLust!</h1>
-  <p>Discover the world's most amazing destinations.</p>
-  <!-- <form mathod="GET" action="/listings/new">
-    <button>Create</button>
-  </form> -->
 
-  <ul>
-    <% for (let listing of allListings){ %>
-    <li>
-      <a href="/listings/<%= listing._id %>"> <%= listing.title %> </a>
+<h1 class="heading">Welcome to WonderLust!</h1>
+<p class="text">Discover the world's most amazing destinations.</p>
 
-    </li>
-    <% } %>
-  </ul>
-</body>
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 ">
+<% for (let listing of allListings){ %>
+<div class="card col" style="width: 20rem">
+  <img src="<%= listing.image.url %>" class="card-img-top" style="height: 20rem" alt="<%= listing.title %> image" />
+
+  <div class="card-body">
+    <h5 class="card-title"><b><%= listing.title %></b></h5>
+    <p class="card-text">
+      title : <%= listing.title %> 
+      <br />
+     price :&#8377 <%= listing.price.toLocaleString("en-IN") %>/night
+      <br />
+      Location : <%= listing.location %>
+      <br />
+      Description : <%= listing.description %>
+    </p>
+    <a href="/listings/<%= listing.id %>" class="btn btn-primary">View Listing</a>
+  </div>
+
+</div> 
+<% } %>
+</div>
+
+
+

@@ -21,7 +21,7 @@ const listingSchema = new Schema({
   image: {
     filename: String,
     url: String,
-    
+   
   },
   country :{
     type : String,

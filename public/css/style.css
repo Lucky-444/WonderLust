@@ -2,6 +2,23 @@
     background-color: pink;
 } */
 
+.container{
+    
+    flex : 1;
+}
+.heading{
+    margin-top: 2rem;
+    text-align: center;
+}
+.text{
+    margin-top: 0.5rem;
+    padding-bottom: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #060606;
+   
+}
 .navbar{
     height: 5rem;
     background-color: #f8f9fa;
@@ -54,3 +71,27 @@
     background-color: #f8f9fa;
     height: 4rem;
 }
+
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+   
+}
+
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+
+
+.card-text{
+    color: #060606;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+} 
