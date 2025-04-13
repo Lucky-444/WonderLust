@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const flash = require('connect-flash');
 
 const mongoose = require("mongoose");
 
@@ -40,6 +41,7 @@ router.post("/", async (req, res, next) => {
     let newListing = new Listing(listing);
     await newListing.save();
     // console.log(listing);
+    req.flash("success", "Successfully created a new listing!");
     res.redirect("/listings");
   } catch (err) {
     next(err);
