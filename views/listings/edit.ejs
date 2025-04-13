@@ -1,7 +1,7 @@
 <% layout("layouts/boilerplate") %> 
   <div class="container mt-5">
     <h3>Edit Your Listing</h3>
-    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT">
+    <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation ">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input
@@ -9,6 +9,7 @@
           value="<%= listing.title %>"
           type="text"
           class="form-control"
+          
         />
       </div>
 
@@ -18,6 +19,7 @@
           name="listing[description]"
           class="form-control"
           rows="3"
+          required
         ><%= listing.description %></textarea>
       </div>
 
@@ -28,6 +30,7 @@
           value="<%= listing.image?.url %>"
           type="text"
           class="form-control"
+          required
         />
       </div>
 
@@ -38,6 +41,7 @@
           value="<%= listing.price %>"
           type="number"
           class="form-control"
+          required
         />
       </div>
 
@@ -48,6 +52,7 @@
           value="<%= listing.country %>"
           type="text"
           class="form-control"
+         
         />
       </div>
 
@@ -58,10 +63,13 @@
           value="<%= listing.location %>"
           type="text"
           class="form-control"
+          required
         />
       </div>
 
       <button class="btn btn-primary">Update Listing</button>
     </form>
   </div>
+
+<script src="js/script.js"></script>
 
