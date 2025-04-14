@@ -39,6 +39,7 @@
 
       <hr />
 
+      <% if(currUser) { %>
       <div class="mt-4">
         <h3>Leave a Review</h3>
         <form method="POST" action="/listings/<%= listing._id %>/reviews" class="needs-validation">
@@ -69,6 +70,9 @@
           <button type="submit" class="btn btn-primary mt-3">Submit Review</button>
         </form>
       </div>
+      <% } else { %>
+        <div class="alert alert-info mt-4">Please log in to leave a review.....</div>
+      <% } %>
 
       <% if (listing.reviews && listing.reviews.length > 0) { %>
         <hr />
@@ -91,7 +95,7 @@
                       <span class="badge bg-secondary"><%= review.rating %>/5</span>
                     </div>
                     <hr />
-                    <p class="card-text text-muted mb-0"><%= review.comment %></p>
+                    <p class="card-text text-muted mb-0"><%= review.comment %> </p>
 
                   </div>
       
