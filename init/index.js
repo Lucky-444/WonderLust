@@ -13,15 +13,17 @@ main()
   });
 
 async function main() {
-  
   await mongoose.connect(MONGO_URL);
 }
 
 const initDB = async () => {
-    await Listing.deleteMany({});
-    await Listing.insertMany(data.data);    
-    console.log("Database initialized with sample data");
+  await Listing.deleteMany({});
+  data.data = data.data.map((obj) => ({
+    ...obj,
+    owner: "67fd2f73d64f1882ab648706",
+  }));
+  await Listing.insertMany(data.data);
+  console.log("Database initialized with sample data");
 };
 
 initDB();
-

@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Brand -->
     <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="/">
-      <i class="fa-solid fa-compass "></i> WonderLust
+      <i class="fa-solid fa-compass fa-lg"></i> WonderLust
     </a>
 
     <!-- Toggler for mobile -->
@@ -20,10 +20,21 @@
 
     <!-- Links -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-      <div class="navbar-nav gap-3">
-        <a class="nav-link  text-dark fw-semibold" href="/">Home</a>
+      <div class="navbar-nav gap-3 align-items-center">
+        <a class="nav-link text-dark fw-semibold" href="/">Home</a>
         <a class="nav-link text-dark fw-semibold" href="/listings">All Listings</a>
         <a class="nav-link text-dark fw-semibold" href="/listings/new">Add New Listing</a>
+
+        <!-- Auth Buttons -->
+        <div class="d-flex gap-2 ms-lg-4 mt-2 mt-lg-0">
+          <% if (!currUser) { %>
+            <a href="/login" class="btn btn-outline-primary px-3 rounded-pill">Login</a>
+            <a href="/signup" class="btn btn-primary px-3 rounded-pill">Sign Up</a>
+          <% } %>
+          <% if (currUser) { %>
+            <a href="/logout" class="btn btn-danger px-3 rounded-pill">Logout</a>
+          <% } %>
+        </div>
       </div>
     </div>
   </div>

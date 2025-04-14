@@ -4,6 +4,8 @@ const passport = require("passport");
 const User = require("../models/user");
 const wrapAsync = require("../utils/wrapAsync");
 
+const {savedredirectUrl} = require("../middleware");
+
 router.get("/signup", (req, res) => {
   res.render("users/signup.ejs");
 });
@@ -16,7 +18,13 @@ router.post(
       const newUser = new User({ username, email });
       const result = await User.register(newUser, password);
       console.log(result);
-      res.redirect("/listings");
+      req.login(result ,(err) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).send("Internal Server Error");
+        }
+        res.redirect("/listings");
+      });
     } catch (error) {
       console.error(error);
       res.status(500).send("Internal Server Error");
@@ -30,16 +38,27 @@ router.get("/login", (req, res) => {
 
 router.post(
     "/login",
+    savedredirectUrl, // Middleware to save redirect URL
+    
     passport.authenticate("local", {
       failureRedirect: "/login",
       failureFlash: true,
     }),
     async (req, res) => {
       console.log("User info:", req.user);
-      res.redirect("/listings");
+      res.redirect(res.locals.redirectUrl || "/listings"); 
+      //delete req.session.redirectUrl;
     }
   );
   
-  
+  router.get("/logout" , (req, res ) => {
+    req.logout((err) => {
+      if (err) {
+        console.error(err); 
+        return res.status(500).send("Internal Server Error");
+      }
+      res.redirect("/listings");
+    });
+  });
 
 module.exports = router;
