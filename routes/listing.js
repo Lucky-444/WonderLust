@@ -13,13 +13,29 @@ const app = express();
 const wrapAsync = require("../utils/wrapAsync");
 const ExpressError = require("../utils/ExpressError");
 const Review = require("../models/review");
-const { console } = require("inspector/promises");
 
 //index Route
+// index Route with search
 router.get("/", async (req, res) => {
-  const allListings = await Listing.find({});
-  res.render("listings/index.ejs", { allListings: allListings });
+  const { q } = req.query;
+  let allListings;
+
+  if (q) {
+    // Case-insensitive, partial match for title/location/description
+    allListings = await Listing.find({
+      $or: [
+        { title: { $regex: q, $options: "i" } },
+        { location: { $regex: q, $options: "i" } },
+        { description: { $regex: q, $options: "i" } }
+      ]
+    });
+  } else {
+    allListings = await Listing.find({});
+  }
+
+  res.render("listings/index.ejs", { allListings });
 });
+
 
 //New Route
 router.get("/new", isLoggedInUser, (req, res) => {
@@ -51,7 +67,7 @@ router.get(
 );
 
 // Crete Route
-router.post("/", isLoggedInUser, async (req, res, next) => {
+router.post("/", isLoggedInUser , async (req, res, next) => {
   //let {title, description ,image, price, location, country} = req.body;
   try {
     let listing = req.body.listing;

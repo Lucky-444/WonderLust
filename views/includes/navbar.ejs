@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top border-bottom">
   <div class="container">
     <!-- Brand -->
-    <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="/">
+    <a class="navbar-brand d-flex align-items-center gap-2 fw-bold" href="/listings">
       <i class="fa-solid fa-compass fa-lg"></i> WonderLust
     </a>
 
@@ -17,12 +17,16 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-
+    <div class="navbar-nav  ms-lg-3 ">
+      <form class="d-flex" role="search" method="GET" action="/listings">
+        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>      
+    </div>
     <!-- Links -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
       <div class="navbar-nav gap-3 align-items-center">
-        <a class="nav-link text-dark fw-semibold" href="/">Home</a>
-        <a class="nav-link text-dark fw-semibold" href="/listings">All Listings</a>
+        <a class="nav-link text-dark fw-semibold" href="/listings">Explore</a>
         <a class="nav-link text-dark fw-semibold" href="/listings/new">Add New Listing</a>
 
         <!-- Auth Buttons -->
