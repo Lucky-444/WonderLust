@@ -1,7 +1,9 @@
+require('dotenv').config();
 const express = require("express");
 const mongoose = require("mongoose");
 const port = 3000;
-const MONGO_URL = "mongodb://127.0.0.1:27017/WonderLost";
+const MONGO_URL = process.env.CONNECTION_STRING;
+
 const Listing = require("./models/listing");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -18,6 +20,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user");
 const userRouter = require("./routes/user");
+
 
 
 const session = require("express-session");
