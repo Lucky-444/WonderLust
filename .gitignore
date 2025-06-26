@@ -1,4 +1,5 @@
 node_modules
 README.MD
 .env
+/init/.env
 

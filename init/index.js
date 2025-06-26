@@ -1,8 +1,11 @@
 const mongoose = require("mongoose");
 const data = require("./data");
+require('dotenv').config();
+const 
+CONNECTION_STRING=process.env.CS;
 
 const Listing = require("../models/listing");
-const MONGO_URL = "mongodb://127.0.0.1:27017/WonderLost";
+const MONGO_URL = CONNECTION_STRING;
 
 main()
   .then(() => {
